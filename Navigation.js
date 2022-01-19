@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavigationContainer } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
+import CalificacionDocente from './screens/CalificacionDocente'
 
 
 export default function Navigation() {
@@ -15,10 +16,9 @@ export default function Navigation() {
     return (
         <NavigationContainer>
             {/* initialRouteName -> tu pantalla de inicio */}
-            <Stack.Navigator initialRouteName="" screenOptions={screenOptions} >
+            <Stack.Navigator initialRouteName="CalificacionDocente" screenOptions={screenOptions} >
                 {/* Creas tus pantallas */}
-                <Stack.Screen name="" component={} />
-                <Stack.Screen name="" component={} />
+                <Stack.Screen name="CalificacionDocente" component={CalificacionDocente} />
             </Stack.Navigator>
         </NavigationContainer>
     )
