@@ -1,8 +1,12 @@
 import React from "react";
-import { StyleSheet, Text, View, TextInput, ScrollView } from "react-native";
+import { StyleSheet, Text, View, TextInput, ScrollView, TouchableOpacity } from "react-native";
 import { Icon } from "react-native-elements";
+import { useNavigation } from '@react-navigation/native'
 
 export default function RankingDocentes() {
+
+  const navigation = useNavigation();
+
   const dataDocentes = [
     {
       name: "Gamboa Cruzado Javier Arturo",
@@ -78,7 +82,7 @@ export default function RankingDocentes() {
 
       <View style={styles.rankingHeader}>
         <Text style={styles.qualificationTeacher}>Calificación</Text>
-        <Text style={styles.nameTeacher}>Nombre Docente</Text>
+        <Text style={styles.nameHeader}>Nombre Docente</Text>
         <Text style={styles.dificultTeacher}>Dificultad</Text>
       </View>
       <ScrollView>
@@ -108,7 +112,10 @@ export default function RankingDocentes() {
                 />
               )}
             </Text>
-            <Text style={styles.nameTeacher}>{docente.name}</Text>
+            <TouchableOpacity onPress={() => navigation.navigate("Calificacion del docente")} style={{flex: 1}}>
+              <Text style={styles.nameTeacher}>{docente.name}</Text>
+            </TouchableOpacity>
+            
             <Text style={styles.dificultTeacher}>{docente.dificult}</Text>
           </View>
         ))}
@@ -172,9 +179,17 @@ const styles = StyleSheet.create({
     width: "25%",
     textAlign: "center",
   },
-  nameTeacher: {
-    width: "55%",
+  nameHeader: {
     textAlign: "center",
+    color: "#000"
+  },
+  nameTeacher: {
+    // width: "55%",
+    textAlign: "center",
+    color: "#3990cc"
+    // flex: 1,
+    // alignItems: "center",
+    // justifyContent: "center"
   },
   dificultTeacher: {
     width: "20%",

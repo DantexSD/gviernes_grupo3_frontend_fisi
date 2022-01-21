@@ -1,13 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { Icon } from "react-native-elements"
+import { Divider, Icon } from "react-native-elements"
 
 export default function Summary() {
 
     const dataSummary = [
         {
             name: "Gamboa Cruzado Javier Arturo",
-            recommend: 1,
+            recommend: 0,
             dificult: "6.9"
         }
     ]
@@ -19,11 +19,12 @@ export default function Summary() {
                 <View style={styles.summaryLeft}>
                     <Text style={styles.textContent}>Lo recomiendan</Text>
                     <Text style={styles.textContentResult}>
-                        {(dataSummary[0].recommend == 1) ? <Icon size={50} name="emoji-happy" color="#000" type="entypo" /> : 
-                        (dataSummary[0].recommend == 0) ? <Icon size={50} name="emoji-neutral" color="#000" type="entypo" /> : 
-                        <Icon size={50} name="emoji-sad" color="#000" type="entypo" />}
+                        {(dataSummary[0].recommend == 1) ? <Icon size={60} name="emoji-happy" color="#4AD828" type="entypo" /> : 
+                        (dataSummary[0].recommend == 0) ? <Icon size={60} name="emoji-neutral" color="#EAE718" type="entypo" /> : 
+                        <Icon size={60} name="emoji-sad" color="#FF0000" type="entypo" />}
                     </Text>
                 </View>
+                <Divider color='#fff' width={1} orientation='vertical'></Divider>
                 <View style={styles.summaryRight}>
                     <Text style={styles.textContent}>Dificultad</Text>
                     <Text style={styles.textContentResult}>5.4</Text>
@@ -35,7 +36,9 @@ export default function Summary() {
 
 const styles = StyleSheet.create({
     container: {
-        margin: 20,
+        // margin: 20,
+        marginRight: 20,
+        marginLeft: 20
         // backgroundColor: "#c4c4c4"
     },
 
@@ -51,13 +54,10 @@ const styles = StyleSheet.create({
     },
 
     summaryLeft: {
-        // padding: ""
-        // backgroundColor: "#f3f",
         alignItems: "center"
     },
 
     summaryRight: {
-        // backgroundColor: "#f3f6",
         alignItems: "center"
     },
 
@@ -69,11 +69,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: "bold",
         marginTop: 10,
-        // justifyContent: "center"
-        // alignSelf: "center"
-        // width: 50,
-        // height: 50,
-        // backgroundColor: "#f3f6",
+
     },
 
     icon: {
