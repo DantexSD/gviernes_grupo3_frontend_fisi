@@ -97,7 +97,7 @@ export default function CalificacionDocente() {
         
         <Divider orientation='horizontal' width={1} />
         <View>
-            <Pressable onPress={() => navigation.navigate("Registrar Calificacion")} titleSize={20} style={styles.button} >
+            <Pressable titleSize={20} style={styles.button} >
                 <Text style={styles.buttonText}>Calificar docente</Text>
             </Pressable>
         </View>
