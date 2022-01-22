@@ -1,10 +1,16 @@
 import React from "react";
-import { StyleSheet, Text, View, TextInput, ScrollView, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import { Icon } from "react-native-elements";
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation } from "@react-navigation/native";
 
 export default function RankingDocentes() {
-
   const navigation = useNavigation();
 
   const dataDocentes = [
@@ -112,10 +118,13 @@ export default function RankingDocentes() {
                 />
               )}
             </Text>
-            <TouchableOpacity onPress={() => navigation.navigate("Calificacion del docente")} style={{flex: 1}}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("Calificacion del docente")}
+              style={{ flex: 1 }}
+            >
               <Text style={styles.nameTeacher}>{docente.name}</Text>
             </TouchableOpacity>
-            
+
             <Text style={styles.dificultTeacher}>{docente.dificult}</Text>
           </View>
         ))}
@@ -181,12 +190,12 @@ const styles = StyleSheet.create({
   },
   nameHeader: {
     textAlign: "center",
-    color: "#000"
+    color: "#000",
   },
   nameTeacher: {
     // width: "55%",
     textAlign: "center",
-    color: "#3990cc"
+    color: "#3990cc",
     // flex: 1,
     // alignItems: "center",
     // justifyContent: "center"
