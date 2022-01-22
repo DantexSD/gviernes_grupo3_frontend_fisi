@@ -153,10 +153,10 @@ export default function RegistrarCalificacion() {
             <View style={{flexDirection: "row", alignItems: "center"}}>
                 <Text style={{fontSize: 15, fontWeight: "bold"}}>¿Realizar calificación?</Text>
                 <View style={{flexDirection: "row", justifyContent: "space-around", flex: 1, alignItems: "center"}}>
-                    <Pressable titleSize={20} style={styles.buttonSi} >
+                    <Pressable onPress={() => navigation.navigate("Calificacion del docente")} titleSize={20} style={styles.buttonSi} >
                         <Text style={styles.buttonText}>Si</Text>
                     </Pressable>
-                    <Pressable titleSize={20} style={styles.buttonNo} >
+                    <Pressable onPress={() => navigation.navigate("Calificacion del docente")} titleSize={20} style={styles.buttonNo} >
                         <Text style={styles.buttonText}>No</Text>
                     </Pressable>
                 </View>
