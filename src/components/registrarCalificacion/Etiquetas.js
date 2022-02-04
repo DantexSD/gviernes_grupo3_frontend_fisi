@@ -27,12 +27,9 @@ export default function Etiquetas(props) {
             if(!s) {
                 setCount(count + 1)
                 ss(true)
-                console.log(count)
-        
             } else {
                 ss(false)
                 setCount(count - 1)
-                console.log(count)
             }
         }
     

@@ -38,7 +38,6 @@ export default function LoginForm() {
                 initialValues={{email: '', password: ''}}
                 onSubmit={(values, {setSubmitting, resetForm}) => {
                     onLogin(values.email, values.password, setSubmitting)
-                    console.log(values.email, values.password)
                     resetForm({ values: ""})
                 }}
                 validateOnMount={true}
@@ -82,7 +81,7 @@ export default function LoginForm() {
                         <Text style={styles.buttonText}>Iniciar Sesión</Text>
                     </Pressable>}
                     {isSubmitting &&
-                    <Pressable disabled={true} >
+                    <Pressable disabled={true} style={styles.button(isValid)} >
                         <ActivityIndicator size="large" color={"#444"} />
                     </Pressable>}
                     <View style={{alignItems: "center", marginTop: 20}}>

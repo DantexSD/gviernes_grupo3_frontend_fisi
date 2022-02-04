@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet, Image, Text } from 'react-native'
+import { View, StyleSheet, Image, Text, ScrollView } from 'react-native'
 import SignupForm from '../components/Signup/SignupForm';
 
 const PROFE_LOGO = "https://i.ibb.co/whd5HRC/profe.png"
@@ -7,13 +7,15 @@ const PROFE_LOGO = "https://i.ibb.co/whd5HRC/profe.png"
 export default function SignupScreen() {
     return (
         <View style={styles.container}>
-            <View style={styles.logoContainer}>
-                <Image source={{uri: PROFE_LOGO, height: 200, width: 150 }} />
-                <Text style={{fontWeight: "bold", fontSize: 25}}>Conoce a tu</Text>
-                <Text style={{fontWeight: "bold", fontSize: 25}}>docente</Text>
-                <Text style={{fontWeight: "bold", fontSize: 25}}>FISI</Text>
-            </View>
-            <SignupForm />
+            <ScrollView showsVerticalScrollIndicator={false}>
+                <View style={styles.logoContainer}>
+                    <Image source={{uri: PROFE_LOGO, height: 200, width: 150 }} />
+                    <Text style={{fontWeight: "bold", fontSize: 25}}>Conoce a tu</Text>
+                    <Text style={{fontWeight: "bold", fontSize: 25}}>docente</Text>
+                    <Text style={{fontWeight: "bold", fontSize: 25}}>FISI</Text>
+                </View>
+                <SignupForm />
+            </ScrollView>
         </View>
     )
 }

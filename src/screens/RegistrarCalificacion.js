@@ -122,148 +122,147 @@ export default function RegistrarCalificacion({ route }) {
         <View style={{margin: 20, flex: 1}}>
             {/* <KeyboardAvoidingView behavior='padding' style={{flex: 1}}> */}
             <ScrollView style={{}} showsVerticalScrollIndicator={false}>
-            <Text style={{fontSize: 20, textAlign: "center"}}>{docente}</Text>
+                <Text style={{fontSize: 20, textAlign: "center"}}>{docente}</Text>
             
-            <Formik
-                initialValues={{curso: '', comentario: '', dificultad: rating, dominio: ratingCurso, material: ratingMaterial, etiqueta1: etiqueta1[0], etiqueta2: etiqueta1[1], etiqueta3: etiqueta1[2]}}
-                onSubmit={(values, {setSubmitting}) => {
-                    if(values.curso == "" || values.comentario == "") {
-                        Alert.alert("Datos inválidos", "Complete correctamente los campos")
-                    } else {
-                        onRegisterCalification(values.curso, values.comentario, values.dificultad, values.dominio, values.material, values.etiqueta1, values.etiqueta2, values.etiqueta3, setSubmitting)
-                    }
-                }}
-                validateOnMount={true}
-                enableReinitialize
-            >
-                {({handleChange, handleBlur, handleSubmit, values, isValid, isSubmitting}) => (
-                <>
-                    <View style={{backgroundColor: "#eee", marginTop: 5 , marginBottom: 5, borderRadius: 5}}>
-                        <View style={styles.formContainer}>
-                            <Text style={styles.label}>Curso/Asignatura: </Text>    
-                            <View style={styles.input}>
-                                <TextInput 
-                                    placeholder='Curso...' 
-                                    autoFocus={true}
-                                    onChangeText={handleChange("curso")}
-                                    onBlur={handleBlur("curso")}
-                                    value={values.curso}
-                                />
-                            </View>         
-                        </View>
-                        <View style={styles.formContainer}>
-                            <Text style={styles.label}>Dificultad:</Text>
-                            <View style={styles.inputContainer}>
-                                {[1, 2, 3, 4, 5].map((item, index) =>(
-                                    <Rating
-                                        key={index}
-                                        index={item}
-                                        rating={rating}
-                                        hoverRating={hoverRating}
-                                        onMouseEnter={onMouseEnter}
-                                        onMouseLeave={onMouseLeave}
-                                        onSaveRating={onSaveRating}
-                                        handleChange={handleChange("dificultad")}
-                                        handleBlur={handleBlur("dificultad")}
-                                        setRating={setRating}
-                                        value={rating}
+                <Formik
+                    initialValues={{curso: '', comentario: '', dificultad: rating, dominio: ratingCurso, material: ratingMaterial, etiqueta1: etiqueta1[0], etiqueta2: etiqueta1[1], etiqueta3: etiqueta1[2]}}
+                    onSubmit={(values, {setSubmitting}) => {
+                        if(values.curso == "" || values.comentario == "") {
+                            Alert.alert("Datos inválidos", "Complete correctamente los campos")
+                        } else {
+                            onRegisterCalification(values.curso, values.comentario, values.dificultad, values.dominio, values.material, values.etiqueta1, values.etiqueta2, values.etiqueta3, setSubmitting)
+                        }
+                    }}
+                    validateOnMount={true}
+                    enableReinitialize
+                >
+                    {({handleChange, handleBlur, handleSubmit, values, isValid, isSubmitting}) => (
+                    <>
+                        <View style={{backgroundColor: "#eee", marginTop: 5 , marginBottom: 5, borderRadius: 5}}>
+                            <View style={styles.formContainer}>
+                                <Text style={styles.label}>Curso/Asignatura: </Text>    
+                                <View style={styles.input}>
+                                    <TextInput 
+                                        placeholder='Curso...' 
+                                        autoFocus={true}
+                                        onChangeText={handleChange("curso")}
+                                        onBlur={handleBlur("curso")}
+                                        value={values.curso}
                                     />
-                                ))}  
+                                </View>         
+                            </View>
+                            <View style={styles.formContainer}>
+                                <Text style={styles.label}>Dificultad:</Text>
+                                <View style={styles.inputContainer}>
+                                    {[1, 2, 3, 4, 5].map((item, index) =>(
+                                        <Rating
+                                            key={index}
+                                            index={item}
+                                            rating={rating}
+                                            hoverRating={hoverRating}
+                                            onMouseEnter={onMouseEnter}
+                                            onMouseLeave={onMouseLeave}
+                                            onSaveRating={onSaveRating}
+                                            handleChange={handleChange("dificultad")}
+                                            handleBlur={handleBlur("dificultad")}
+                                            setRating={setRating}
+                                            value={rating}
+                                        />
+                                    ))}  
+                                </View>
+                            </View>
+                            <View style={styles.formContainer}>
+                                <Text style={styles.label}>Domina el curso:</Text>
+                                <View style={styles.inputContainer}>
+                                    {[1,2,3,4,5].map((item, index) =>(
+                                        <Rating
+                                            key={index}
+                                            index={item}
+                                            rating={ratingCurso}
+                                            hoverRating={hoverRatingCurso}
+                                            onMouseEnter={onMouseEnterCurso}
+                                            onMouseLeave={onMouseLeaveCurso}
+                                            onSaveRating={onSaveRatingCurso}
+                                            handleChange={handleChange("dominio")}
+                                            handleBlur={handleBlur("dominio")}
+                                            value={ratingCurso}
+                                        />
+                                    ))}  
+                                </View>
+                            </View>
+                            <View style={styles.formContainer}>
+                                <Text style={styles.label}>Material Didáctico:</Text>
+                                <View style={styles.inputContainer}>
+                                    {[1, 2, 3, 4, 5].map((item, index) =>(
+                                        <Rating
+                                            key={index}
+                                            index={item}
+                                            rating={ratingMaterial}
+                                            hoverRating={hoverRatingMaterial}
+                                            onMouseEnter={onMouseEnterMaterial}
+                                            onMouseLeave={onMouseLeaveMaterial}
+                                            onSaveRating={onSaveRatingMaterial}
+                                            handleChange={handleChange("material")}
+                                            handleBlur={handleBlur("material")}
+                                            value={ratingMaterial}
+                                        />
+                                    ))}  
+                                </View>
                             </View>
                         </View>
-                        <View style={styles.formContainer}>
-                            <Text style={styles.label}>Domina el curso:</Text>
-                            <View style={styles.inputContainer}>
-                                {[1,2,3,4,5].map((item, index) =>(
-                                    <Rating
-                                        key={index}
-                                        index={item}
-                                        rating={ratingCurso}
-                                        hoverRating={hoverRatingCurso}
-                                        onMouseEnter={onMouseEnterCurso}
-                                        onMouseLeave={onMouseLeaveCurso}
-                                        onSaveRating={onSaveRatingCurso}
-                                        handleChange={handleChange("dominio")}
-                                        handleBlur={handleBlur("dominio")}
-                                        value={ratingCurso}
-                                    />
-                                ))}  
-                            </View>
-                        </View>
-                        <View style={styles.formContainer}>
-                            <Text style={styles.label}>Material Didáctico:</Text>
-                            <View style={styles.inputContainer}>
-                                {[1, 2, 3, 4, 5].map((item, index) =>(
-                                    <Rating
-                                        key={index}
-                                        index={item}
-                                        rating={ratingMaterial}
-                                        hoverRating={hoverRatingMaterial}
-                                        onMouseEnter={onMouseEnterMaterial}
-                                        onMouseLeave={onMouseLeaveMaterial}
-                                        onSaveRating={onSaveRatingMaterial}
-                                        handleChange={handleChange("material")}
-                                        handleBlur={handleBlur("material")}
-                                        value={ratingMaterial}
-                                    />
-                                ))}  
-                            </View>
-                        </View>
-                    </View>
-                    <Divider width={2} orientation='horizontal' />
-                    {/* Etiquetas */}
-                    <Etiquetas 
-                        etiqueta1={etiqueta1}
-                        onSaveEtiqueta={onSaveEtiqueta}
-                        handleRemove={handleRemove}
-                        value1={values.etiqueta1}
-                    />
-                    <Divider width={2} orientation='horizontal' />
-                    {/* comentario */}
-                    <Text style={{marginTop: 15, marginBottom: 15, fontWeight: "bold", fontSize: 18}}>Comentario:</Text>
-                    <View style={{borderWidth: 1, marginBottom: 15}}>
-                        <TextInput 
-                            placeholder='Ingrese su comentario' 
-                            editable 
-                            maxLength={500} 
-                            multiline 
-                            numberOfLines={6}
-                            onChangeText={handleChange('comentario')}
-                            onBlur={handleBlur('comentario')}
-                            value={values.comentario}
+                        <Divider width={2} orientation='horizontal' />
+                        {/* Etiquetas */}
+                        <Etiquetas 
+                            etiqueta1={etiqueta1}
+                            onSaveEtiqueta={onSaveEtiqueta}
+                            handleRemove={handleRemove}
+                            value1={values.etiqueta1}
                         />
-                    </View>   
-                    <Divider width={2} orientation='horizontal' />
-                    {/* Button */}
-                    <Text style={{marginTop: 10}}>Nota: Comentarios constructivos. Cualquier comentario inadecuado será eliminado</Text>
-                    <View style={{ marginTop: 15, marginBottom: 15}}>
-                        <Text style={{fontSize: 15, fontWeight: "bold", textAlign: "center"}}>¿Realizar calificación?</Text>
-                        <View style={{flexDirection: "row", justifyContent: "space-around", flex: 1}}>
-                            
-                            {!isSubmitting && 
-                            <Pressable onPress={handleSubmit} titleSize={20} style={styles.buttonSi} >
-                                <Text style={styles.buttonText}>Si</Text>
-                            </Pressable>}
+                        <Divider width={2} orientation='horizontal' />
+                        {/* comentario */}
+                        <Text style={{marginTop: 15, marginBottom: 15, fontWeight: "bold", fontSize: 18}}>Comentario:</Text>
+                        <View style={{borderWidth: 1, marginBottom: 15}}>
+                            <TextInput 
+                                placeholder='Ingrese su comentario' 
+                                editable 
+                                maxLength={500} 
+                                multiline 
+                                numberOfLines={6}
+                                onChangeText={handleChange('comentario')}
+                                onBlur={handleBlur('comentario')}
+                                value={values.comentario}
+                            />
+                        </View>   
+                        <Divider width={2} orientation='horizontal' />
+                        {/* Button */}
+                        <Text style={{marginTop: 10}}>Nota: Comentarios constructivos. Cualquier comentario inadecuado será eliminado</Text>
+                        <View style={{ marginTop: 15, marginBottom: 15}}>
+                            <Text style={{fontSize: 15, fontWeight: "bold", textAlign: "center"}}>¿Realizar calificación?</Text>
+                            <View style={{flexDirection: "row", justifyContent: "space-around", flex: 1}}>
+                                
+                                {!isSubmitting && 
+                                <Pressable onPress={handleSubmit} titleSize={20} style={styles.buttonSi} >
+                                    <Text style={styles.buttonText}>Si</Text>
+                                </Pressable>}
 
-                            {isSubmitting &&
-                            <Pressable style={styles.buttonSi} disabled={true} >
-                                <ActivityIndicator size="large" color={"#444"} />
-                            </Pressable>}
-                            <Pressable onPress={() => navigation.navigate("Calificacion del docente", {
-                                    id_docente: id_docente,
-                                    docente: docente,
-                                    resultado: resultado,
-                                    dificultad: dificultad,
-                                    usuario: usuario
-                            })} titleSize={20} style={styles.buttonNo} >
-                                <Text style={styles.buttonText}>No</Text>
-                            </Pressable>
+                                {isSubmitting &&
+                                <Pressable style={styles.buttonSi} disabled={true} >
+                                    <ActivityIndicator size="large" color={"#444"} />
+                                </Pressable>}
+                                <Pressable onPress={() => navigation.navigate("Calificacion del docente", {
+                                        id_docente: id_docente,
+                                        docente: docente,
+                                        resultado: resultado,
+                                        dificultad: dificultad,
+                                        usuario: usuario
+                                })} titleSize={20} style={styles.buttonNo} >
+                                    <Text style={styles.buttonText}>No</Text>
+                                </Pressable>
+                            </View>
                         </View>
-                    </View>
-                </>
-                )}
-                
-            </Formik>
+                    </>
+                    )} 
+                </Formik>
             </ScrollView>
             {/* </KeyboardAvoidingView> */}
         </View>

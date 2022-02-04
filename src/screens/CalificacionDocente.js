@@ -33,25 +33,26 @@ export default function CalificacionDocente({ route }) {
                 <Text style={{flex: 0.3}}>Curso</Text>
                 <Text style={{flex: 0.45}}>Comentarios</Text>
             </View>   
-            <View style={{height: "50%"}}>
+            <View style={{flex: 1}}>
                 <ScrollView scrollEnabled={true} showsVerticalScrollIndicator={true} >  
                     {comentarioData.map((comentario, index) => (   
                         <Comments  comentario ={comentario} key={index} /> 
                     ))}        
                 </ScrollView>
             </View> 
-            
-            <Divider orientation='horizontal' width={1} />
-            <View>
-                <Pressable onPress={() => navigation.navigate("Registrar Calificacion", {
-                    id_docente: id_docente,
-                    docente: docente,
-                    resultado: resultado,
-                    dificultad: dificultad,
-                    usuario: usuario
-                })} titleSize={20} style={styles.button} >
-                    <Text style={styles.buttonText}>Calificar docente</Text>
-                </Pressable>
+            <View style={{}}>
+                <Divider orientation='horizontal' width={1} />
+                <View>
+                    <Pressable onPress={() => navigation.navigate("Registrar Calificacion", {
+                        id_docente: id_docente,
+                        docente: docente,
+                        resultado: resultado,
+                        dificultad: dificultad,
+                        usuario: usuario
+                    })} titleSize={20} style={styles.button} >
+                        <Text style={styles.buttonText}>Calificar docente</Text>
+                    </Pressable>
+                </View>
             </View>
           </View>
         </View>
@@ -64,7 +65,8 @@ const styles = StyleSheet.create({
         flex: 1
     },
     containerComment: {
-        margin: 20
+        margin: 20,
+        flex: 1
     },
     numberComments: {
         fontSize: 18,
