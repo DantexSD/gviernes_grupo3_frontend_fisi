@@ -21,14 +21,15 @@ export default function LoginForm() {
                 navigation.navigate("Ranking", {
                     usuario: result[0].usuario
                 })
+                setSubmitting(false)
             } else {
                 Alert.alert('Failed...', "Datos inválidos. Intente nuevamente")
             }
-            setSubmitting(false)
+            
 
         } catch (error) {
-            setSubmitting(false)
             Alert.alert('Failed...', "Datos inválidos. Intente nuevamente")
+            setSubmitting(false)
         }
     }
 
@@ -38,7 +39,9 @@ export default function LoginForm() {
                 initialValues={{email: '', password: ''}}
                 onSubmit={(values, {setSubmitting, resetForm}) => {
                     onLogin(values.email, values.password, setSubmitting)
-                    resetForm({ values: ""})
+                    // resetForm({ values: ""})
+                    values.email="",
+                    values.password=""
                 }}
                 validateOnMount={true}
 
@@ -76,14 +79,16 @@ export default function LoginForm() {
                         />
                     </View>
                     {/* <Button title='Log in' /> */}
-                    {!isSubmitting && 
-                    <Pressable titleSize={20} style={styles.button(isValid)} onPress={handleSubmit} disabled={!isValid}>
-                        <Text style={styles.buttonText}>Iniciar Sesión</Text>
-                    </Pressable>}
-                    {isSubmitting &&
-                    <Pressable disabled={true} style={styles.button(isValid)} >
-                        <ActivityIndicator size="large" color={"#444"} />
-                    </Pressable>}
+                    <View>
+                        {!isSubmitting && 
+                        <Pressable titleSize={20} style={styles.button} onPress={handleSubmit} disabled={!isValid}>
+                            <Text style={styles.buttonText}>Iniciar Sesión</Text>
+                        </Pressable>}
+                        {isSubmitting &&
+                        <Pressable disabled={true} style={styles.button} >
+                            <ActivityIndicator size="large" color={"#fff"} />
+                        </Pressable>}
+                    </View>
                     <View style={{alignItems: "center", marginTop: 20}}>
                         <Text style={{color: "#000", fontWeight: "bold"}}>¿Olvidaste tu contraseña?</Text>
                     </View>
@@ -114,14 +119,23 @@ const styles = StyleSheet.create({
         borderWidth: 1
     },
 
-    button: isValid => ({
-        backgroundColor: isValid ? "#4a4945" : "#9ACAF7",
+    // button: isValid => ({
+    //     backgroundColor: isValid ? "#4a4945" : "#9ACAF7",
+    //     alignItems: "center",
+    //     justifyContent: "center",
+    //     minHeight: 42,
+    //     borderRadius: 4,
+    //     marginTop: 20
+    // }),
+
+    button: {
+        backgroundColor: "#4a4945",
         alignItems: "center",
         justifyContent: "center",
         minHeight: 42,
         borderRadius: 4,
         marginTop: 20
-    }),
+    },
 
     buttonText: {
         fontWeight: "600",

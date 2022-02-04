@@ -129,6 +129,7 @@ export default function RegistrarCalificacion({ route }) {
                     onSubmit={(values, {setSubmitting}) => {
                         if(values.curso == "" || values.comentario == "") {
                             Alert.alert("Datos inválidos", "Complete correctamente los campos")
+                            setSubmitting(false);
                         } else {
                             onRegisterCalification(values.curso, values.comentario, values.dificultad, values.dominio, values.material, values.etiqueta1, values.etiqueta2, values.etiqueta3, setSubmitting)
                         }
