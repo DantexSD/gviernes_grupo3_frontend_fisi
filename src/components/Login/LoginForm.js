@@ -24,6 +24,7 @@ export default function LoginForm() {
                 setSubmitting(false)
             } else {
                 Alert.alert('Failed...', "Datos inválidos. Intente nuevamente")
+                setSubmitting(false)
             }
             
 

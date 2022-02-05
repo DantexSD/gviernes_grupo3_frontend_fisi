@@ -17,14 +17,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      
     },
     "android": {
+      "package": "com.docentefisi.conoceatudocente",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      },
-      "package": "com.docentefisi.conoceatudocente"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
